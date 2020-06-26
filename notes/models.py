@@ -4,7 +4,6 @@ from django.db import models
 
 # program table 
 class Program(models.Model):
-    programID = models.AutoField(primary_key=True)
     programTitle = models.TextField(null=False, blank=False)
 
     def __str__(self):
@@ -19,7 +18,7 @@ class Program(models.Model):
 class Course(models.Model):
     courseID = models.AutoField(primary_key=True)
     courseName = models.TextField(null=False, blank=False)
-    program = models.ForeignKey(Program, on_delete=models.CASCADE)
+    program = models.ForeignKey(Program, default=1, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.courseName
