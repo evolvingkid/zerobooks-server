@@ -12,7 +12,7 @@ def program(request):
     serializer = ProgramSerializiers(programs, many=True)
     return JsonResponse(serializer.data, safe=False)
 
-
+# to get all course / subject in the database
 def course(request):
     course = Course.objects.all()
     serializer = CourseSerializiers(course, many=True)
